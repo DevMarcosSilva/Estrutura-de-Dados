@@ -16,7 +16,7 @@ int main()
 
     if (arquivoEntrada == NULL || arquivoSaida == NULL)
     {
-        printf("Erro ao abrir os arquivos!\n");
+        printf("Erro ao abrir os arquivoss!\n");
         exit(1);
     }
 
