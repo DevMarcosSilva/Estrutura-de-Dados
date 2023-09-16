@@ -4,11 +4,11 @@
 
 
 // Declarando um array de strings chamado 'nomes' com 20 strings de até 20 caracteres cada.
-<<<<<<< HEAD
+
+char nomes[20][20] = {"maca", "bananaaaaa", "pera", "uva", "laranja", "abacaxi", "limao", "manga", "abacate", "kiwi", "cereja", "morango", "pessego", "goiaba", "melancia", "framboesa", "amora", "caqui", "figo", "papaya"};
+
 char nomes[20][20] = {"maca", "banana", "pera", "uva", "laranja", "abacaxi", "limao", "manga", "abacate", "kiwi", "cereja", "morango", "pessego", "goiaba", "melancia", "framboesa", "amora", "caqui", "figo", "papaya"};
-=======
-char nomes[20][20] = {"maca", "banana", "pera", "uva", "laranja", "abacaxi", "limao", "manga", "abacate", "kiwi", "cereja", "morango", "pessego", "goiaba", "melancia", "framboesa", "amora", "caqui", "figo", "papaya"};
->>>>>>> 7a77185c907a3e024c74260e641cc5112eb39187
+
 
 // Função 'ordenar' que recebe dois ponteiros de inteiros como parâmetros.
 void ordenar(int *trocas, int *comparacao)
