@@ -46,7 +46,7 @@ int main()
     
     for (x = 0; x <= 19; x++)
     {
-        printf(" %s, ", nomes[x]);
+        printf("(%d) %s, ",x+1, nomes[x]);
         fprintf(arquivo,"%s ,", nomes[x]);
     }
 
@@ -58,7 +58,7 @@ int main()
     
     for (x = 0; x <= 19; x++)
     {
-        printf(" %s, ", nomes[x]);
+        printf("(%d) %s, ",x+1, nomes[x]);
         fprintf(arquivo," %s, ", nomes[x]);
     }
      
