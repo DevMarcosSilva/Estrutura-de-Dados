@@ -40,7 +40,7 @@ void ordenar(int *trocas, int *comparacao)
 int main()
 {
     // Abre um arquivo chamado "arquivoSaida.txt" para escrita.
-    FILE *arquivo = fopen("arquivoSaida.txt","w");
+    FILE *arquivo = fopen("ArquivoSaida.txt","w");
 
     int x, trocas, comparacao;
 
