@@ -47,7 +47,7 @@ int main()
     for (x = 0; x <= 19; x++)
     {
         printf("(%d) %s, ",x+1, nomes[x]);
-        fprintf(arquivo,"%s ,", nomes[x]);
+        fprintf(arquivo,"(%d) %s ,",x+1, nomes[x]);
     }
 
     ordenar(&trocas, &comparacao);
@@ -59,7 +59,7 @@ int main()
     for (x = 0; x <= 19; x++)
     {
         printf("(%d) %s, ",x+1, nomes[x]);
-        fprintf(arquivo," %s, ", nomes[x]);
+        fprintf(arquivo,"(%d) %s, ",x+1, nomes[x]);
     }
      
     // Imprime o número de trocas e comparações na tela e no arquivo.

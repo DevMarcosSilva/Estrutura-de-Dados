@@ -1,10 +1,10 @@
  Vetor nao ordenado!
 
-maca ,banana ,pera ,uva ,laranja ,abacaxi ,limao ,manga ,abacate ,kiwi ,cereja ,morango ,pessego ,goiaba ,melancia ,framboesa ,amora ,caqui ,figo ,papaya ,
+(1) maca ,(2) banana ,(3) pera ,(4) uva ,(5) laranja ,(6) abacaxi ,(7) limao ,(8) manga ,(9) abacate ,(10) kiwi ,(11) cereja ,(12) morango ,(13) pessego ,(14) goiaba ,(15) melancia ,(16) framboesa ,(17) amora ,(18) caqui ,(19) figo ,(20) papaya ,
 
  Vetor ordenado!
 
- abacate,  abacaxi,  amora,  banana,  caqui,  cereja,  figo,  framboesa,  goiaba,  kiwi,  laranja,  limao,  maca,  manga,  melancia,  morango,  papaya,  pera,  pessego,  uva, 
+(1) abacate, (2) abacaxi, (3) amora, (4) banana, (5) caqui, (6) cereja, (7) figo, (8) framboesa, (9) goiaba, (10) kiwi, (11) laranja, (12) limao, (13) maca, (14) manga, (15) melancia, (16) morango, (17) papaya, (18) pera, (19) pessego, (20) uva, 
 
 Numero de trocas: 104
 Numero de comparacoes realizadas foram : 190
