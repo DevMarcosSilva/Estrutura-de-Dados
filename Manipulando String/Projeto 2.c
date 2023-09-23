@@ -7,7 +7,7 @@
 
 char nomes[20][20] = {"maca", "bananaa", "pera", "uva", "laranja", "abacaxi", "limao", "manga", "abacate", "kiwi", "cereja", "morango", "pessego", "goiaba", "melancia", "framboesa", "amora", "caqui", "figo", "papaya"};
 
-char nomes[20][20] = {"maca", "banana", "pera", "uva", "laranja", "abacaxi", "limao", "manga", "abacate", "kiwi", "cereja", "morango", "pessego", "goiaba", "melancia", "framboesa", "amora", "caqui", "figo", "papaya"};
+
 
 
 // Função 'ordenar' que recebe dois ponteiros de inteiros como parâmetros.
