@@ -3,93 +3,98 @@
 #include <math.h>
 #include <string.h>
 
-#define MAX_SIZE 100
+#define TAMANHO_MAX 100
 
 typedef struct {
-    double stack[MAX_SIZE];
-    int top;
-} Stack;
+    double pilha[TAMANHO_MAX];
+    int topo;
+} Pilha;
 
-void push(Stack *stack, double value) {
-    if (stack->top < MAX_SIZE - 1) {
-        stack->top++;
-        stack->stack[stack->top] = value;
+int ehNumerico(char c) {
+    return (c >= '0' && c <= '9') || c == '.';
+}
+
+void empilhar(Pilha *pilha, double valor) {
+    if (pilha->topo < TAMANHO_MAX - 1) {
+        pilha->topo++;
+        pilha->pilha[pilha->topo] = valor;
     } else {
         printf("Erro: Pilha está cheia.\n");
         exit(EXIT_FAILURE);
     }
 }
 
-double pop(Stack *stack) {
-    if (stack->top >= 0) {
-        return stack->stack[stack->top--];
+double desempilhar(Pilha *pilha) {
+    if (pilha->topo >= 0) {
+        return pilha->pilha[pilha->topo--];
     } else {
         printf("Erro: Pilha está vazia.\n");
         exit(EXIT_FAILURE);
     }
 }
 
-void calculateAndPush(Stack *stack, char operation) {
-    double operand2, operand1;
+void calcularEEmpilhar(Pilha *pilha, char operacao) {
+    double operando2, operando1;
 
-    switch (operation) {
+    switch (operacao) {
         case '+':
-            operand2 = pop(stack);
-            operand1 = pop(stack);
-            push(stack, operand1 + operand2);
+            operando2 = desempilhar(pilha);
+            operando1 = desempilhar(pilha);
+            empilhar(pilha, operando1 + operando2);
             break;
         case 'l':
-            operand1 = pop(stack);
-            push(stack, log10(operand1));
-            break;
-        case '/':
-            operand2 = pop(stack);
-            operand1 = pop(stack);
-            push(stack, operand1 / operand2);
-            break;
-        case '*':
-            operand2 = pop(stack);
-            operand1 = pop(stack);
-            push(stack, operand1 * operand2);
+            operando1 = desempilhar(pilha);
+            empilhar(pilha, log10(operando1));
             break;
         case '^':
-            operand2 = pop(stack);
-            operand1 = pop(stack);
-            push(stack, pow(operand1, operand2));
+            operando2 = desempilhar(pilha);
+            operando1 = desempilhar(pilha);
+            empilhar(pilha, pow(operando1, operando2));
             break;
         case 's':
-            operand1 = pop(stack);
-            push(stack, sin(operand1 * 3.14159 / 180.0)); 
+            operando1 = desempilhar(pilha);
+            empilhar(pilha, sin(operando1 * 3.14 / 180.0)); // Converter graus para radianos para a função seno
             break;
-                   
+        case '/':
+            operando2 = desempilhar(pilha);
+            operando1 = desempilhar(pilha);
+            empilhar(pilha, operando1 / operando2);
+            break;
         default:
-            printf("Operador inválido: %c\n", operation);
-            exit(EXIT_FAILURE);
+            if (ehNumerico(operacao)) {
+                empilhar(pilha, atof(&operacao));
+            } else {
+                printf("Operador inválido: %c\n", operacao);
+                exit(EXIT_FAILURE);
+            }
     }
 }
 
-double evaluateExpression(char expression[]) {
-    Stack stack;
-    stack.top = -1;
+double avaliarExpressao(char expressao[]) {
+    Pilha pilha;
+    pilha.topo = -1;
 
-    for (int i = 0; i < strlen(expression); i++) {
-        if (isdigit(expression[i])) {
-            push(&stack, expression[i] - '0');
-        } else if (expression[i] == ' ') {
+    for (int i = 0; i < strlen(expressao); i++) {
+        if (isdigit(expressao[i]) || expressao[i] == '.') {
+            empilhar(&pilha, atof(&expressao[i]));
+            while (isdigit(expressao[i + 1]) || expressao[i + 1] == '.') {
+                i++;
+            }
+        } else if (expressao[i] == ' ') {
             continue;
         } else {
-            calculateAndPush(&stack, expression[i]);
+            calcularEEmpilhar(&pilha, expressao[i]);
         }
     }
 
-    return pop(&stack);
+    return desempilhar(&pilha);
 }
 
 int main() {
-    char postfixExpression[] = "10 l 3  2 +";
-    double result = evaluateExpression(postfixExpression);
+    char expressaoPosfixa[] = "0.5 45 s 2  + ";
+    double resultado = avaliarExpressao(expressaoPosfixa);
 
-    printf("Resultado: Aprox. %.3lf\n", result);
+    printf("Resultado: %.3lf\n", resultado);
 
     return 0;
 }
